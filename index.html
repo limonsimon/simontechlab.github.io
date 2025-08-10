@@ -1,11 +1,65 @@
-# OS
-.DS_Store
-Thumbs.db
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimonTechLab</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #222;
+            text-align: center;
+        }
+        header {
+            padding: 4rem 1rem;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        a {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            background-color: #222;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #444;
+        }
+        footer {
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SimonTechLab</h1>
+        <p>Refined, modern, and effective web solutions for any profession — from small businesses to ambitious creators.</p>
+        <a href="mailto:youremail@example.com">Contact Me</a>
+    </header>
 
-# Node.js
-node_modules/
-dist/
+    <footer>
+        © <span id="year"></span> SimonTechLab. All rights reserved.
+    </footer>
 
-# Python
-__pycache__/
-*.pyc
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
