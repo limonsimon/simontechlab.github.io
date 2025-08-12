@@ -30,7 +30,8 @@ scroll-behavior:smooth;
 background-size:cover; background-position:center; background-attachment:fixed;
 }
 /* backdrop layer for readability */
-/*.overlay{position:fixed; inset:0; background:linear-gradient(180deg, rgba(11,13,18,.65), rgba(11,13,18,.85)); pointer-events:none;}*/
+.overlay{position:fixed; inset:0; background:linear-gradient(180deg, rgba(11,13,18,.65), rgba(11,13,18,.85)); pointer-events:none;  z-index: -1; /* sits behind content */
+}
 
 header{
 position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(8px);
