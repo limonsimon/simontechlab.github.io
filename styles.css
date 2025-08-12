@@ -26,12 +26,26 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
-  background-image: 
-    linear-gradient(to bottom, transparent 70%, var(--bg) 100%), 
-    url('assets/img/ali-obasohan-GJoDkJgNSbo-unsplash.jpg');
-  background-size: cover;
-  background-position: center calc(var(--scroll) * -0.3px);
-  background-attachment: scroll;
+ 
+}
+.fixed-bg {
+  /* The background image */
+   background-image:     url('assets/img/ali-obasohan-GJoDkJgNSbo-unsplash.jpg');
+
+    /* Set a specified height, or the minimum height for the background image */
+    min-height: 100vh;
+
+    /* Set background image to fixed (don't scroll along with the page) */
+    background-attachment: fixed;
+
+    /* Center the background image */
+    background-position: center;
+
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
 }
 
 .overlay {
