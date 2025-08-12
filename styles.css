@@ -1,0 +1,9 @@
+body {
+    display: grid;
+    grid-template-areas:
+        "menu menu"
+        "content sidebar";
+}
+header { grid-area: menu; }
+main { grid-area: content; }
+aside { grid-area: sidebar; }
