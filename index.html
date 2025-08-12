@@ -28,6 +28,17 @@
       background-image:url('assets/img/ali-obasohan-GJoDkJgNSbo-unsplash.jpg');
       background-size:cover; background-position:center; background-attachment:fixed;
     }
+    .avatar {
+    width: clamp(96px, 18vw, 160px);
+    height: clamp(96px, 18vw, 160px);
+    border-radius: 50%;
+    background-image: url('assets/img/portrait_2x.webp');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+
     /* backdrop layer for readability */
     .overlay{position:fixed; inset:0; background:linear-gradient(180deg, rgba(11,13,18,.65), rgba(11,13,18,.85)); pointer-events:none;}
 
@@ -83,10 +94,29 @@
 
     /* ABOUT */
     .about{align-items:center}
-    .avatar{width:120px; height:120px; border-radius:50%; object-fit:cover; border:2px solid var(--stroke);}
 
     footer{padding:28px 20px; border-top:1px solid var(--stroke); background:rgba(14,17,23,.65)}
     .foot{max-width:var(--maxw); margin:0 auto; color:var(--muted); font-size:14px}
+
+    /* Mobile polish */
+    @media (max-width: 768px){
+    /* Avoid jank from fixed backgrounds on mobile */
+    body { background-attachment: scroll; }
+
+    /* Comfortable spacing on small screens */
+    .section { padding: 48px 16px; min-height: 78svh; }
+    .card { padding: 22px; }
+
+    /* Readable headings/text */
+    .hero h1 { font-size: clamp(28px, 7vw, 40px); }
+    .hero p  { font-size: clamp(15px, 4.2vw, 17px); }
+
+    /* Stack grids vertically */
+    .grid-2 { grid-template-columns: 1fr; }
+
+    /* Avatar scales fluidly */
+    .avatar { width: clamp(96px, 22vw, 140px); height: clamp(96px, 22vw, 140px); }
+    }
   </style>
 </head>
 <body>
@@ -172,8 +202,7 @@
   <section class="section" id="about">
     <div class="wrap card about grid grid-2">
       <div style="display:flex; align-items:center; gap:18px">
-        <img class="avatar" src="assets/img/Portrait.jpg" alt="Portrait placeholder" />
-        <div>
+          <div class="avatar no-save" aria-label="Portrait"></div>        <div>
           <div class="kicker">About</div>
           <h2 class="title" style="margin-top:6px">Simon / SimonTechLab</h2>
           <p class="muted" style="margin:6px 0 0;">Swiss engineer with a focus on clarity, reliability, and design. I build things that are quietly excellent—
@@ -192,7 +221,7 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // simple mailto form submit (no backend). Replace with your email.
-    const emailTo = 'hello@simontechlab.com'; // TODO: set your email or use a contact form service
+    const emailTo = 'simontechlab@gmail.com'; // TODO: set your email or use a contact form service
     document.getElementById('inquiryForm').addEventListener('submit', (e)=>{
       e.preventDefault();
       const fd = new FormData(e.target);
@@ -202,6 +231,13 @@
       const subject = encodeURIComponent(`New inquiry from ${fd.get('name')}`);
       const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\nMessage:\n${decodeURIComponent(msg)}`);
       window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+    });
+    // protection of portrait
+    document.addEventListener('contextmenu', (e) => {
+        if (e.target.closest('.no-save')) e.preventDefault();
+    });
+    document.addEventListener('dragstart', (e) => {
+        if (e.target.closest('.no-save')) e.preventDefault();
     });
   </script>
 </body>
