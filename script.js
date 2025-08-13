@@ -19,4 +19,3 @@ document.getElementById('inquiryForm').addEventListener('submit', (e) => {
   window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
 });
 
-//This is a test to commit
