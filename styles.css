@@ -284,17 +284,26 @@ footer {
   align-items: start;
 }
 
-/* Header row: portrait + name */
+/* Two-column layout */
+.about .about-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left a bit narrower */
+  gap: 48px;
+  align-items: start;
+}
+
+/* Header row: photo + About/Simon */
 .about-header {
   display: flex;
   align-items: center;
+  justify-content: center;    /* centers the whole header block in the left column */
   gap: 20px;
   margin-bottom: 18px;
 }
 
 .about-header .avatar {
-  width: 150px; /* doubled size */
-  height: 150px;
+  width: 140px;               /* larger portrait */
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -311,18 +320,12 @@ footer {
   margin-top: 4px;
 }
 
-/* Text blocks */
-.about-intro {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-/* Center-align subtitles and text */
+/* Center subtitles and text */
 .subtle-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 28px 0 12px;
-  text-align: center; /* <-- center subtitle text */
+  text-align: center;
 }
 
 .about-left p,
@@ -331,34 +334,24 @@ footer {
   line-height: 1.7;
   margin-bottom: 20px;
   max-width: 60ch;
-  text-align: center; /* <-- center paragraph text */
-  margin-left: auto;  /* center block horizontally */
-  margin-right: auto; /* center block horizontally */
-}
-.about-left p,
-.about-right p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  max-width: 60ch;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Responsive stacking */
+/* Intro spacing */
+.about-intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
   .about .about-split {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .about-header {
-    justify-content: center;
-    text-align: center;
-  }
-  .about-intro,
-  .about-left p,
-  .about-right p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .about-header { text-align: center; }
+  .about-name { text-align: left; } /* keeps name left of photo’s right edge on small screens */
 }
-
