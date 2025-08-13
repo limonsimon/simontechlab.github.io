@@ -2,7 +2,7 @@
 document.getElementById('y').textContent = new Date().getFullYear();
 
 // Simple mailto form submit (no backend)
-const emailTo = 'hello@simontechlab.com'; // TODO: set your email or use a contact form service
+const emailTo = 'techlab.simon@gmail.com'; // TODO: set your email or use a contact form service
 
 document.getElementById('inquiryForm').addEventListener('submit', (e) => {
   e.preventDefault();
