@@ -354,4 +354,7 @@ footer {
   }
   .about-header { text-align: center; }
   .about-name { text-align: left; } /* keeps name left of photo’s right edge on small screens */
+    .fixed-bg {
+    background-attachment: scroll;
+  }
 }
