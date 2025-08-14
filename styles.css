@@ -357,4 +357,17 @@ footer {
     .fixed-bg {
     background-attachment: scroll;
   }
+    .overlay {
+    background: linear-gradient(180deg, rgba(11,13,18,0.8), rgba(11,13,18,.7));
+  }
+  .section { 
+    min-height: 100svh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #home { background-image: url('assets/img/dobr1na-kHKzXJyUuQ4-unsplash.jpg'); }
+  #quant { background-image: url('/img/sky-evening.jpg'); }
+  #services { background-image: url('/img/sky-night.jpg'); }
+  #about { background-image: url('/img/sky-dawn.jpg'); }
 }
