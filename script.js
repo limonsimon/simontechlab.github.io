@@ -19,3 +19,13 @@ document.getElementById('inquiryForm').addEventListener('submit', (e) => {
   window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
 });
 
+if (window.innerWidth <= 900) {
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-past', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(section => observer.observe(section));
+}
