@@ -10,11 +10,13 @@
 }
 
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
@@ -26,39 +28,68 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
- 
-}
-.fixed-bg {
-  /* The background image */
-   background-image:     url('assets/img/ali-obasohan-GJoDkJgNSbo-unsplash.jpg');
-
-    /* Set a specified height, or the minimum height for the background image */
-    min-height: 100vh;
-
-    /* Set background image to fixed (don't scroll along with the page) */
-    background-attachment: fixed;
-
-    /* Center the background image */
-    background-position: center;
-
-    /* Set the background image to no repeat */
-    background-repeat: no-repeat;
-
-    /* Scale the background image to be as large as possible */
-    background-size: cover;
 }
 
+.parallax-wrapper {
+    position: relative;
+    height: 400vh; /* Enough space to scroll */
+    overflow: hidden;
+}
 .overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11,13,18,.65), rgba(11,13,18,.85));
+  background: rgba(11, 13, 18, 0.75); /* middle value between .65 and .85 */
   pointer-events: none;
   z-index: -1;
 }
 
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Make it taller than the viewport */
+    background-image: url('assets/img/blueCloud.jpg'); /* a tall image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    z-index: -1;
+    will-change: transform;
+}
+
+/* Section */
+.section {
+    position: relative;
+   
+    min-height: 90svh;
+    display: flex;
+    align-items: center;
+    padding: 64px 20px;
+}
+.wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 28px;
+}
+
 /* HEADER */
+.header-parent {
+  height: 200px; /* controls the "stick" distance */
+  width: 100%;
+  position: absolute;  /* takes it out of the normal flow */
+
+  background: transparent; /* fully see-through */
+}
+
 header {
   position: sticky;
+  width: 100%;
   top: 0;
   z-index: 10;
   backdrop-filter: saturate(1.2) blur(8px);
@@ -102,27 +133,7 @@ header {
   color: var(--fg);
 }
 
-/* SECTION */
-.section {
-  min-height: 90svh;
-  display: flex;
-  align-items: center;
-  padding: 64px 20px;
-}
-
-.wrap {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--stroke);
-  border-radius: 18px;
-  padding: 28px;
-}
-
-/* HERO */
+/*Hero*/
 .hero {
   min-height: 92svh;
   display: flex;
@@ -156,6 +167,7 @@ header {
   cursor: pointer;
 }
 
+
 .btn-accent {
   background: var(--accent);
   color: #0b0d12;
@@ -166,6 +178,9 @@ header {
   color: var(--fg);
   border: 1px solid var(--stroke);
 }
+
+
+
 
 /* TITLES */
 .kicker {
@@ -185,6 +200,7 @@ header {
   color: var(--muted);
 }
 
+
 /* GRID */
 .grid {
   display: grid;
@@ -196,6 +212,7 @@ header {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 /* BADGE */
 .badge {
@@ -223,6 +240,7 @@ header {
     box-shadow: 0 0 0 18px rgba(110,231,255,0);
   }
 }
+
 
 /* FORM */
 form {
@@ -263,34 +281,6 @@ textarea {
   border: 2px solid var(--stroke);
 }
 
-/* FOOTER */
-footer {
-  padding: 28px 20px;
-  border-top: 1px solid var(--stroke);
-  background: rgba(14,17,23,.65);
-}
-
-.foot {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.about .about-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr; /* left slightly smaller */
-  gap: 48px; /* generous breathing space between columns */
-  align-items: start;
-}
-
-/* Two-column layout */
-.about .about-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr; /* left a bit narrower */
-  gap: 48px;
-  align-items: start;
-}
 
 /* Header row: photo + About/Simon */
 .about-header {
@@ -344,5 +334,28 @@ footer {
   font-size: 1.15rem;
   line-height: 1.6;
   margin-bottom: 24px;
+}
+.about .about-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left slightly smaller */
+  gap: 48px; /* generous breathing space between columns */
+  align-items: start;
+}
+
+/* Two-column layout */
+.about .about-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left a bit narrower */
+  gap: 48px;
+  align-items: start;
+}
+
+
+/* FOOTER */
+
+footer {
+  padding: 28px 20px;
+  border-top: 1px solid var(--stroke);
+  background: rgba(14,17,23,.65);
 }
 

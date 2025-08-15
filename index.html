@@ -2,170 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SimonTechLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parallax Scroll with Tall Background</title>
+  <link rel="stylesheet" href="styles.css"> 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="fixed-bg">
-  <div class="overlay" aria-hidden="true"></div>
+<body>
+    <div class="header-parent">
 
-  <header>
-    <div class="nav">
-      <div class="brand"><span class="dot"></span> SimonTechLab</div>
-      <nav class="links">
-        <a href="#quant">Quant</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-      </nav>
+        <header>
+            <div class="nav">
+                <div class="brand"><span class="dot"></span> SimonTechLab</div>
+                <nav class="links">
+                    <a href="#quant">Quant</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                </nav>
+            </div>
+        </header>
     </div>
-  </header>
+    <div class="parallax-wrapper">
+        
+        <div class="parallax-bg" id="parallax-bg"> </div>
+        <div class="overlay" aria-hidden="true"></div>
 
-  <!-- HERO -->
-  <section class="hero section" id="home">
-    <div class="wrap">
-      <div class="card">
-        <h1>SimonTechLab — Focused Digital Tools, Built with Precision</h1>
-        <p>
-          From lean websites to applied AI and quant systems — I design and build clean, performant solutions with purpose.
-        </p>
-        <div class="row">
-          <a class="btn btn-accent" href="#services">Work with me</a>
-          <a class="btn btn-ghost" href="#quant">Quant research</a>
-        </div>
-      </div>
+        <!-- HERO -->
+        <section class="hero section" id="home">
+            <div class="wrap">
+                <div class="card">
+                    <h1>SimonTechLab — Focused Digital Tools, Built with Precision</h1>
+                    <p>
+                        From lean websites to applied AI and quant systems — I design and build clean, performant solutions with purpose.
+                    </p>
+                    <div class="row">
+                        <a class="btn btn-accent" href="#services">Work with me</a>
+                        <a class="btn btn-ghost" href="#quant">Quant research</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUANT TRADING -->
+        <section class="section" id="quant">
+            <div class="wrap grid grid-2">
+                
+                <!-- Left card -->
+                <div class="card">
+                    <div class="badge">
+                        <span class="pulse"></span> Coming soon · Opening to external capital
+                    </div>
+                    <h2 class="title">Quant Trading</h2>
+                    <p class="muted", style="text-align: center;">
+                        Low risk, high returns. Never holding longer than necessary.
+                        Carefully timed entries, repeated consistently around the clock. The <strong>Schoen Type 1</strong> continuously
+                        analyzes an unbounded number of markets.
+                        Entirely born from my own inspiration and original thinking, this 
+                        trading system captures high-profit scenarios that conventional
+                        methods overlook. It is fully self-developed and unlike anything used 
+                        by institutions or found in existing literature.
+                        Minimalism and modularity are key to the <strong>Schoen Type 1</strong>'s design — it’s built to evolve.
+                        A beta version is currently being tested in live markets.
+                    </p>
+                </div>
+                
+                <!-- Right card -->
+                <div class="card">
+                    <h3 style="margin-top:0; font-size: 22px;">Latest Focus Areas</h3>
+                    <ul class="muted" style="margin:8px 0 0 18px; font-size: 18px;">
+                        <li>CNNs &amp; Reinforcement Learning</li>
+                        <li>Implementing Realistic Mathematical Simulation of Order Execution Probability</li>
+                        <li>Testing the Beta version of the Schoen Type 1 for Robustness</li>
+                    </ul>
+                    <div class="row" style="margin-top:40px">
+                        <a class="btn btn-accent" href="#contact">Request early access</a>
+                        <a class="btn btn-ghost" href="#services">See current services</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SERVICES + CONTACT FORM -->
+        <section class="section" id="services">
+            <div class="wrap grid grid-2">
+                <div class="card">
+                    <h2 class="title">Web &amp; AI Services</h2>
+                    <p class="muted">
+                    Small business sites, landing pages, and lightweight AI automations. 
+                    Clean, reliable, and fast. Built with an eye for detail and maintainability.
+                    </p>
+                    <ul class="muted" style="margin:12px 0 0 18px">
+                    <li>Modern, responsive websites</li>
+                    <li>Contact forms, calendars, basic e-commerce</li>
+                    <li>Chatbot integrations &amp; simple data tools</li>
+                    </ul>
+                </div>
+
+                <div class="card" id="contact">
+                    <h3 style="margin-top:0">Start a conversation</h3>
+                    <form id="inquiryForm">
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <textarea name="message" placeholder="Tell me briefly what you need" required></textarea>
+                    <button class="btn btn-accent" type="submit">Send inquiry</button>
+                    <p class="muted" id="formHint" style="margin:6px 0 0; font-size:13px">
+                        This opens your email app with a prefilled message.
+                    </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+            
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="wrap card about">
+                <div class="about-split">
+                    <!-- LEFT: header (photo + name), then intro, then section 1 -->
+                    <div class="about-left">
+                        <!-- Header row: photo left, About/Simon right -->
+                        <div class="about-header">
+                            <img class="avatar" src="assets/img/Portrait.webp" alt="Portrait of Simon" />
+                            <div class="about-name">
+                                <div class="kicker">About</div>
+                                <h2 class="title">Simon</h2>
+                            </div>
+                        </div>
+                        <!-- Intro below header -->
+                        <p class="muted about-intro">
+                            Swiss engineer with a focus on automation, optimization, and smart design.  
+                            I create focused digital tools — from streamlined websites to applied AI and quantitative systems.  
+                            Effective by design.
+                        </p>
+
+                        <h3 class="subtle-title">How It Started</h3>
+                        <p class="muted">
+                        I have always been drawn to optimization and automation — the art of making things work better, smarter, and with less friction. That interest led me to pursue a Bachelor's degree in Computer Science at ETH Zurich, where I built a strong foundation in structured thinking, problem-solving, and systems design.
+                        </p>
+                    </div>
+                    <!-- RIGHT: personality & philosophy -->
+                    <div class="about-right">
+                        <h3 class="subtle-title">From Code to Markets</h3>
+                        <p class="muted">
+                            In my final semesters, I began applying what I’d learned to a new question: how could these skills be used to approach the financial markets in an original, automated, and intelligent way? This marked the beginning of my deep focus on quantitative research and trading system design.
+                        </p>
+
+                        <h3 class="subtle-title">Balancing Logic and Creativity</h3>
+                        <p class="muted" style="margin-bottom:0;">
+                            My work is driven by two core forces: a respect for rigorous, conventional learning — the kind found in universities, books, and proven methods — and a belief in bold, independent innovation. I see lasting progress as a balance between the two: grounded thinking and fearless creativity.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
 
-  <!-- QUANT TRADING -->
-<section class="section" id="quant">
-  <div class="wrap grid grid-2">
-    
-    <!-- Left card -->
-    <div class="card">
-      <div class="badge">
-        <span class="pulse"></span> Coming soon · Opening to external capital
-      </div>
-      <h2 class="title">Quant Trading</h2>
-      <p class="muted", style="text-align: center;">
-        Low risk, high returns. Never holding longer than necessary.
-        Carefully timed entries, repeated consistently around the clock. The <strong>Schoen Type 1</strong> continuously
-        analyzes an unbounded number of markets.
-        Entirely born from my own inspiration and original thinking, this 
-        trading system captures high-profit scenarios that conventional
-        methods overlook. It is fully self-developed and unlike anything used 
-        by institutions or found in existing literature.
-        Minimalism and modularity are key to the <strong>Schoen Type 1</strong>'s design — it’s built to evolve.
-        A beta version is currently being tested in live markets.
+    <footer>
+        <div class="foot">© <span id="y"></span> SimonTechLab • Zurich</div>
+    </footer>
 
-      </p>
-      
-    </div>
-    
-    <!-- Right card -->
-    <div class="card">
-      <h3 style="margin-top:0; font-size: 22px;">Latest Focus Areas</h3>
-      <ul class="muted" style="margin:8px 0 0 18px; font-size: 18px;">
-        <li>CNNs &amp; Reinforcement Learning</li>
-        <li>Implementing Realistic Mathematical Simulation of Order Execution Probability</li>
-        <li>Testing the Beta version of the Schoen Type 1 for Robustness</li>
-      </ul>
-      <div class="row" style="margin-top:40px">
-        <a class="btn btn-accent" href="#contact">Request early access</a>
-        <a class="btn btn-ghost" href="#services">See current services</a>
-      </div>
-    </div>
+    <script>
+        const bg = document.getElementById('parallax-bg');
 
-  </div>
-</section>
+        window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        // Move the background more slowly (parallax effect)
+        bg.style.transform = `translateY(${scrollY * 0.28}px)`; // ✅ Moves in opposite direction, slower
+        });
+    </script>
 
-
-  <!-- SERVICES + CONTACT FORM -->
-  <section class="section" id="services">
-    <div class="wrap grid grid-2">
-      <div class="card">
-        <h2 class="title">Web &amp; AI Services</h2>
-        <p class="muted">
-          Small business sites, landing pages, and lightweight AI automations. 
-          Clean, reliable, and fast. Built with an eye for detail and maintainability.
-        </p>
-        <ul class="muted" style="margin:12px 0 0 18px">
-          <li>Modern, responsive websites</li>
-          <li>Contact forms, calendars, basic e-commerce</li>
-          <li>Chatbot integrations &amp; simple data tools</li>
-        </ul>
-      </div>
-
-      <div class="card" id="contact">
-        <h3 style="margin-top:0">Start a conversation</h3>
-        <form id="inquiryForm">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
-          <textarea name="message" placeholder="Tell me briefly what you need" required></textarea>
-          <button class="btn btn-accent" type="submit">Send inquiry</button>
-          <p class="muted" id="formHint" style="margin:6px 0 0; font-size:13px">
-            This opens your email app with a prefilled message.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  <!-- ABOUT -->
-<section class="section" id="about">
-  <div class="wrap card about">
-    <div class="about-split">
-
-      <!-- LEFT: header (photo + name), then intro, then section 1 -->
-      <div class="about-left">
-        <!-- Header row: photo left, About/Simon right -->
-        <div class="about-header">
-          <img class="avatar" src="assets/img/Portrait.webp" alt="Portrait of Simon" />
-          <div class="about-name">
-            <div class="kicker">About</div>
-            <h2 class="title">Simon</h2>
-          </div>
-        </div>
-
-        <!-- Intro below header -->
-        <p class="muted about-intro">
-          Swiss engineer with a focus on automation, optimization, and smart design.  
-          I create focused digital tools — from streamlined websites to applied AI and quantitative systems.  
-          Effective by design.
-        </p>
-
-        <h3 class="subtle-title">How It Started</h3>
-        <p class="muted">
-          I have always been drawn to optimization and automation — the art of making things work better, smarter, and with less friction. That interest led me to pursue a Bachelor's degree in Computer Science at ETH Zurich, where I built a strong foundation in structured thinking, problem-solving, and systems design.
-        </p>
-      </div>
-
-      <!-- RIGHT: personality & philosophy -->
-      <div class="about-right">
-        <h3 class="subtle-title">From Code to Markets</h3>
-        <p class="muted">
-          In my final semesters, I began applying what I’d learned to a new question: how could these skills be used to approach the financial markets in an original, automated, and intelligent way? This marked the beginning of my deep focus on quantitative research and trading system design.
-        </p>
-
-        <h3 class="subtle-title">Balancing Logic and Creativity</h3>
-        <p class="muted" style="margin-bottom:0;">
-          My work is driven by two core forces: a respect for rigorous, conventional learning — the kind found in universities, books, and proven methods — and a belief in bold, independent innovation. I see lasting progress as a balance between the two: grounded thinking and fearless creativity.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-  <footer>
-    <div class="foot">© <span id="y"></span> SimonTechLab • Zurich</div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
