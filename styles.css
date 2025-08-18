@@ -8,6 +8,13 @@
   --stroke: rgba(255, 255, 255, 0.12);
   --maxw: 1080px;
 }
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h); /* global anchor offset */
+}
+
 html.light {
   --bg: #f9f9fb;
   --bg-2: #ffffff;
@@ -48,7 +55,7 @@ body {
 
 .parallax-bg {
     position: absolute;
-    top:0;
+    top:0px;
     left: 0;
     width: 100%;
     height: 100%; /* Make it taller than the viewport */
@@ -135,6 +142,7 @@ html.light .card {
 
 /* Section */
 .section {
+   scroll-margin-top: var(--header-h);
     position: relative;
    
     min-height: 90svh;
@@ -343,6 +351,7 @@ html:not(.light) .btn-accent {
   }
 }
 :root {
+  --header-h: 64px;
   --accent: #6ee7ff;
   --accent-glow: rgba(110, 231, 255, 0);
 }
@@ -477,3 +486,10 @@ html:not(.light) footer {
   background: rgba(14, 17, 23, 0.65);
 }
 
+@media (max-width: 768px)and (orientation: portrait) {
+.parallax-bg { height: 110%; } /* gives extra slack */
+.parallax-wrapper {
+    height: 400vh; /* Enough space to scroll */
+}
+
+}

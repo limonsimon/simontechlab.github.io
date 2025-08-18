@@ -14,10 +14,11 @@
         <header>
             <div class="nav">
                 <div class="brand"><span class="dot"></span> SimonTechLab</div>
+ 
                 <nav class="links">
-                    <a href="#quant">Quant</a>
-                    <a href="#services">Services</a>
-                    <a href="#about">About</a>
+                    <a href="#" data-scroll="#quant">Quant</a>
+                    <a href="#" data-scroll="#services">Services</a>
+                    <a href="#" data-scroll="#about">About</a>
                 </nav>
                 <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle"> 🌓   </button>           
             </div>
@@ -37,8 +38,8 @@
                         From lean websites to applied AI and quant systems — I design and build clean, performant solutions with purpose.
                     </p>
                     <div class="row">
-                        <a class="btn btn-accent" href="#services">Work with me</a>
-                        <a class="btn btn-ghost" href="#quant">Quant research</a>
+                        <a class="btn btn-accent" data-scroll="#services">Work with me</a>
+                        <a class="btn btn-ghost" data-scroll="#quant">Quant research</a>
                     </div>
                 </div>
             </div>
@@ -76,8 +77,8 @@
                         <li>Testing the Beta version of the Schoen Type 1 for Robustness</li>
                     </ul>
                     <div class="row" style="margin-top:40px">
-                        <a class="btn btn-accent" href="#contact">Request early access</a>
-                        <a class="btn btn-ghost" href="#services">See current services</a>
+                        <a class="btn btn-accent" data-scroll="#contact">Request early access</a>
+                        <a class="btn btn-ghost" data-scroll="#services">See current services</a>
                     </div>
                 </div>
 
@@ -167,16 +168,58 @@
     <script>
         const bg = document.getElementById('parallax-bg');
 
-        window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        // Move the background more slowly (parallax effect)
-        bg.style.transform = `translateY(${scrollY * 0.45}px)`; // ✅ Moves in opposite direction, slower
+        // pick a gentler factor on mobile
+        const mq = window.matchMedia('(max-width: 768px)');
+        let factor = mq.matches ? -0.05 : 0.45;   // tune 0.15–0.22 if needed
+        mq.addEventListener?.('change', () => {
+            factor = mq.matches ? -0.05 : 0.45;
         });
+
+        // optional: respect reduced motion
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function onScroll(){
+            if (reduce) return;
+            const maxShift = Math.max(0, bg.offsetHeight - window.innerHeight);
+            const y = Math.min(window.scrollY * factor, maxShift);
+            bg.style.transform = `translateY(${y}px)`;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initial position
 
         const toggle = document.getElementById('themeToggle');
             toggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('light');
         });
+
+        function headerH(){ return document.querySelector('header')?.offsetHeight || 64; }
+
+        // scroll-jumping
+        function headerH(){ 
+            return document.querySelector('header')?.offsetHeight || 64; 
+        }
+
+        function setupSmoothScroll(){
+            document.querySelectorAll('[data-scroll]').forEach(el=>{
+            el.addEventListener('click', e=>{
+                // allow normal new-tab behavior if user forces it
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                e.preventDefault();
+
+                const targetSel = el.getAttribute('data-scroll');
+                const target = document.querySelector(targetSel);
+                if(!target) return;
+
+                const y = target.getBoundingClientRect().top + window.pageYOffset - headerH();
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            });
+            });
+        }
+
+        window.addEventListener('load', setupSmoothScroll);
+
+
     </script>
 
 </body>
