@@ -485,6 +485,46 @@ footer {
 html:not(.light) footer {
   background: rgba(14, 17, 23, 0.65);
 }
+/* Small screens: use :active instead of :hover */
+@media (hover: hover) and (pointer: fine) {
+  header .links a:hover {
+    color: var(--accent);
+    transform: scale(1.12);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+  }
+
+  .btn-accent:hover {
+    transform: translateY(2px);
+    transition: all 0.1s ease;
+  }
+
+  .btn-ghost:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(2px);
+    transition: all 0.1s ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--card);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+/* No tap highlight on mobile */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* Keep visible focus for keyboard users */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Avoid default focus ring that can appear as a blue box */
+a:focus, button:focus { outline: none; }
+
+
 
 @media (max-width: 768px)and (orientation: portrait) {
 .parallax-bg { height: 110%; } /* gives extra slack */
