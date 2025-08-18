@@ -41,7 +41,7 @@ body {
 
 .parallax-wrapper {
     position: relative;
-    height: 400vh; /* Enough space to scroll */
+    height: 350vh; /* Enough space to scroll */
     overflow: hidden;
 }
 
@@ -159,7 +159,6 @@ html.light .card {
   height: 200px; /* controls the "stick" distance */
   width: 100%;
   position: absolute;  /* takes it out of the normal flow */
-
   background: transparent; /* fully see-through */
 }
 header {
@@ -212,8 +211,7 @@ html:not(.light) header {
   font-weight: 500;
 
 }
-
-.links a:hover {
+header .links a:hover {
   color: var(--accent);
 }
 
@@ -244,18 +242,34 @@ html:not(.light) header {
 }
 
 .btn {
+  position:relative;
   appearance: none;
   border: none;
-  border-radius: 12px;
   padding: 12px 16px;
-  font-weight: 600;
   cursor: pointer;
+  text-decoration: none; 
+  font-weight: 700;       /* bolder */
+  letter-spacing: 0.3px;  /* tiny spacing for readability */
+  font-family: "Nunito";
+  border-radius: 14px;    /* rounder corners */
 }
-
-
 .btn-accent {
   background: var(--accent);
 }
+
+.btn-accent:hover {
+  transform: translateY(2px);
+  transition: all 0.1s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(2px);
+  transition: all 0.1s ease;
+}
+
+
 html.light .btn-accent {
   color: #ffffff; /* white text on red */
 }
@@ -269,9 +283,6 @@ html:not(.light) .btn-accent {
   color: var(--fg);
   border: 1px solid var(--stroke);
 }
-
-
-
 
 /* TITLES */
 .kicker {
@@ -455,11 +466,14 @@ textarea {
 
 footer {
   padding: 28px 20px;
+  z-index: 10;
   border-top: 1px solid var(--stroke);
   transition: background 0.3s ease;
+  background: transparent;
 }
 
 /* Dark mode footer */
 html:not(.light) footer {
   background: rgba(14, 17, 23, 0.65);
 }
+

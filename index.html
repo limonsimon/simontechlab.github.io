@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Parallax Scroll with Tall Background</title>
   <link rel="stylesheet" href="styles.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -169,7 +170,7 @@
         window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         // Move the background more slowly (parallax effect)
-        bg.style.transform = `translateY(${scrollY * -0.05}px)`; // ✅ Moves in opposite direction, slower
+        bg.style.transform = `translateY(${scrollY * 0.45}px)`; // ✅ Moves in opposite direction, slower
         });
 
         const toggle = document.getElementById('themeToggle');
