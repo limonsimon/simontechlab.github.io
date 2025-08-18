@@ -527,4 +527,92 @@ a:focus, button:focus { outline: none; }
     height: 400vh; /* Enough space to scroll */
 }
 
+
+/* ABOUT */
+.about {
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--stroke);
+}
+
+
+/* Header row: photo + About/Simon */
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;    /* centers the whole header block in the left column */
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.about-header .avatar {
+  width: 140px;               /* larger portrait */
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-name .kicker {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.about-name .title {
+  font-size: 2.2rem;
+  margin-top: 4px;
+}
+
+/* Center subtitles and text */
+.subtle-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  text-align: center;
+}
+
+.about-left p,
+.about-right p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 60ch;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Intro spacing */
+.about-intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.about .about-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left slightly smaller */
+  gap: 48px; /* generous breathing space between columns */
+  align-items: start;
+}
+
+/* Two-column layout */
+.about .about-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left a bit narrower */
+  gap: 48px;
+  align-items: start;
+}
+
+
+
+
+
+
 }
