@@ -170,9 +170,9 @@
 
         // pick a gentler factor on mobile
         const mq = window.matchMedia('(max-width: 768px)');
-        let factor = mq.matches ? -0.05 : 0.45;   // tune 0.15–0.22 if needed
+        let factor = mq.matches ? -0.05 : 0.7;   // tune 0.15–0.22 if needed
         mq.addEventListener?.('change', () => {
-            factor = mq.matches ? -0.05 : 0.45;
+            factor = mq.matches ? -0.05 : 0.7;
         });
 
         // optional: respect reduced motion

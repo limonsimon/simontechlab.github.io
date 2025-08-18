@@ -78,15 +78,10 @@ html.light  .overlay {
       z-index: -1;
 }
 html:not(.light) .parallax-bg {
-  background-image: url('assets/img/darkGradient.jpg');
+  background-image: url('assets/img/darkBackground3.jpg');
 }
-html:not(.light) .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  z-index: -1;
-}
+
+
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--stroke);
@@ -483,7 +478,7 @@ footer {
 
 /* Dark mode footer */
 html:not(.light) footer {
-  background: rgba(14, 17, 23, 0.65);
+  background: rgba(2, 7, 48, 0.733);
 }
 /* Small screens: use :active instead of :hover */
 @media (hover: hover) and (pointer: fine) {
